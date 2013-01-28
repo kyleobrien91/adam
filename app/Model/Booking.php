@@ -13,7 +13,6 @@ class Booking extends AppModel {
 		'BookingSource'
 	);
 	public $hasMany = array(
-		'Occupant',
 		'BookingPaymentItem'
 	);
 	public $hasAndBelongsToMany = array('PaymentItem' => array('with' => 'BookingPaymentItem'));
