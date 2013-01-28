@@ -1,0 +1,1 @@
+window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')
