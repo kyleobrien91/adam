@@ -40,7 +40,7 @@ echo $this -> end();
 						</div>
 					</div>
 					<div class="control-group">
-						<? echo $this->Form->input('guest_id', array('options' => am(array(''=>''), $guests),'label' => 'Guest', 'data-placeholder' => 'Choose a Guest...', 'class' => 'input-large chzn-select')); ?>
+						<? echo $this->Form->input('guest_id', array('default' => $default_guest, 'options' => am(array(''=>''), $guests),'label' => 'Guest', 'data-placeholder' => 'Choose a Guest...', 'class' => 'input-large chzn-select')); ?>
 					</div>
 					<div class="control-group">
 						<? echo $this-> Form -> input('ownervisible', array('label'=> 'Visible to Owner')); ?>

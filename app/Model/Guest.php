@@ -37,6 +37,26 @@ class Guest extends AppModel {
 			))
 	);
 
+    /**
+     * Returns a value indicating the default guest to be used in a drop down.
+     *
+     * Checks that the guest exists. If it doesn't, it returns an empty string.
+     * 
+     * @param int $gid
+     * @return string
+     */
+    public function getDefaultGuest($gid=NULL) {
+        if(isset($gid)){
+            if($this->exists($gid)){
+                return $gid;
+            } else {
+                return "";
+            }
+        } else {
+            return "";
+        }
+    }
+
 	public function uniqueGuestNumber() {
 		$unique = FALSE;
 		do {

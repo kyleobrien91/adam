@@ -24,7 +24,7 @@ class BookingsController extends AppController {
 		$this -> set('arrivals', $this->Booking->arrivalsToday());
 	}
  
-	public function add() {
+	public function add($gid = NULL) {
 		$this -> loadModel('PaymentItemCategory');
 		$this -> set('title_for_layout', 'Booking | Add New');
 		$this -> set('bookingSources', am(array("" => ""),$this->Booking->BookingSource->find('list', array('fields' => array('BookingSource.id', 'BookingSource.description')))));
@@ -32,6 +32,7 @@ class BookingsController extends AppController {
 		$this -> set('guests', $this -> Booking -> Guest -> find('list', array('fields' => array('Guest.dropdownname'))));
 		$this -> set('accommodationCategoryId', $this -> PaymentItemCategory -> findByCategory('Accommodation'));
 		$this -> set('depositCategoryId', $this -> PaymentItemCategory -> findByCategory('Deposit'));
+        $this -> set('default_guest', $this->Booking->Guest->getDefaultGuest($gid));
 
 		if ($this -> request -> is('post')) {
 			$newPaymentItemIds = NULL;
@@ -297,16 +298,4 @@ class BookingsController extends AppController {
 			}
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
