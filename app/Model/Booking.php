@@ -459,7 +459,8 @@ class Booking extends AppModel {
 	public function bookingsPlacedThisMonth() {
 		$startTime = mktime(0, 0, 0, date('m'), 1, date('Y'));
 		$startDate = Date('Y-m-d', $startTime);
-		$endTime = mktime();
+		$endTime = time();
+        $this->log(time());
 		$endDate = Date('Y-m-d', $endTime);
 
 		App::import('model', 'User');
